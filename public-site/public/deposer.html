@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <!--#head title="Déposer une annonce — Vendre ou louer votre bien à Sousse" desc="Propriétaire à Hammam Sousse, Sousse, Sahloul ou Khezama ? Confiez la vente ou la location de votre bien à BILI IMMOBILIÈRE."-->
+</head>
+<body>
+<!--#header-->
+
+<main id="main">
+  <section class="page-head">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Fil d'Ariane"><a href="/">Accueil</a><span aria-hidden="true">/</span><span>Déposer une annonce</span></nav>
+      <span class="eyebrow">Propriétaires</span>
+      <h1>Confiez-nous la vente ou la location de votre bien.</h1>
+      <p class="lead">Décrivez votre bien en quelques lignes. L'agence vous recontacte pour organiser une visite et préparer une annonce de qualité.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container contact-grid">
+      <div>
+        <div class="steps" style="grid-template-columns:1fr;gap:36px">
+          <div class="step"><h3>Vous nous décrivez votre bien</h3><p>Quelques informations suffisent pour une première prise de contact.</p></div>
+          <div class="step"><h3>Nous visitons votre bien</h3><p>Pour en apprécier les atouts et vous donner un avis sur le prix du marché.</p></div>
+          <div class="step"><h3>Nous diffusons l'annonce</h3><p>Photos, description et diffusion auprès de nos clients acquéreurs et locataires.</p></div>
+          <div class="step"><h3>Nous vous accompagnons</h3><p>Visites, négociation et démarches, jusqu'à la signature.</p></div>
+        </div>
+      </div>
+
+      <form class="contact-form" id="depot-form" novalidate data-success="Merci ! Votre bien nous a bien été transmis. L'agence vous recontacte rapidement.">
+        <h2>Votre bien</h2>
+        <p class="muted" style="margin-bottom:24px">Les champs marqués <span class="req" style="color:var(--accent)">*</span> sont obligatoires.</p>
+        <div class="form-grid">
+          <div class="form-grid form-grid--2">
+            <div class="form-field"><label for="d-tx">Vous souhaitez</label>
+              <select class="select" id="d-tx" name="transaction"><option value="Vendre">Vendre</option><option value="Louer">Louer</option></select></div>
+            <div class="form-field"><label for="d-type">Type de bien</label>
+              <select class="select" id="d-type" name="type"><option>Appartement</option><option>Villa</option><option>Maison</option><option>Studio</option><option>Terrain</option><option>Local commercial</option></select></div>
+          </div>
+          <div class="form-grid form-grid--2">
+            <div class="form-field"><label for="d-loc">Localisation</label><input class="input" id="d-loc" name="localisation" placeholder="Ex. Sahloul, Sousse"></div>
+            <div class="form-field"><label for="d-surface">Surface (m²)</label><input class="input" id="d-surface" name="surface" type="number" min="0" inputmode="numeric"></div>
+          </div>
+          <div class="form-grid form-grid--2">
+            <div class="form-field"><label for="d-rooms">Chambres</label><input class="input" id="d-rooms" name="chambres" type="number" min="0" inputmode="numeric"></div>
+            <div class="form-field"><label for="d-price">Prix souhaité (TND)</label><input class="input" id="d-price" name="prix" type="number" min="0" inputmode="numeric"></div>
+          </div>
+          <div class="form-field"><label for="d-msg">Description</label><textarea class="textarea" id="d-msg" name="message" placeholder="État, étage, prestations, disponibilité…"></textarea></div>
+          <div class="form-grid form-grid--2">
+            <div class="form-field"><label for="d-name">Nom et prénom <span class="req">*</span></label><input class="input" id="d-name" name="name" required autocomplete="name"></div>
+            <div class="form-field"><label for="d-phone">Téléphone <span class="req">*</span></label><input class="input" id="d-phone" name="phone" type="tel" required autocomplete="tel"></div>
+          </div>
+          <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <button class="btn" type="submit">Envoyer mon bien à l'agence</button>
+          <p class="form-note">Vous préférez envoyer des photos directement ? <a href="https://wa.me/21651294295?text=Bonjour%2C%20je%20souhaite%20confier%20mon%20bien%20%C3%A0%20BILI%20IMMOBILI%C3%88RE." target="_blank" rel="noopener"><u>Écrivez-nous sur WhatsApp</u></a>.</p>
+          <div class="form-status" role="status" hidden></div>
+        </div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<!--#footer-->
+<script src="/js/app.js" defer></script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    window.BILI.bindContactForm(document.getElementById('depot-form'), d => ({
+      kind: 'depot',
+      subject: `Dépôt d'annonce — ${d.transaction} ${d.type}`,
+      details: { Transaction: d.transaction, Type: d.type, Localisation: d.localisation, Surface: d.surface && d.surface + ' m²', Chambres: d.chambres, 'Prix souhaité': d.prix && d.prix + ' TND' },
+    }));
+  });
+</script>
+</body>
+</html>

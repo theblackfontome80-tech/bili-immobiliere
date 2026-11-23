@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{TITLE}} | BILI IMMOBILIÈRE</title>
+  <meta name="description" content="{{DESC}}">
+  <link rel="canonical" href="{{CANONICAL}}">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="BILI IMMOBILIÈRE">
+  <meta property="og:title" content="{{TITLE}}">
+  <meta property="og:description" content="{{DESC}}">
+  <meta property="og:image" content="{{OG_IMAGE}}">
+  <meta property="og:url" content="{{CANONICAL}}">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="icon" href="/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@300..600&family=Inter+Tight:wght@300..600&display=swap">
+  <link rel="stylesheet" href="/css/style.css">
+  <script type="application/ld+json">{{JSONLD}}</script>
+</head>
+<body class="has-mobile-bar">
+<!--#header-->
+
+<main id="main">
+  <div class="container">
+    <section class="property-head">
+      <div>
+        <nav class="breadcrumb" aria-label="Fil d'Ariane" id="crumbs"><a href="/">Accueil</a></nav>
+        <div class="property-head__badges" id="p-badges"></div>
+        <h1 id="p-title"></h1>
+        <div class="property-head__loc"><svg aria-hidden="true"><use href="#i-pin"/></svg><span id="p-loc"></span></div>
+      </div>
+      <div class="property-head__price">
+        <span class="price" id="p-price"></span>
+        <span class="ref" id="p-ref"></span>
+        <div class="property-head__actions">
+          <button class="icon-btn" type="button" id="share" aria-label="Partager l'annonce"><svg><use href="#i-share"/></svg></button>
+        </div>
+      </div>
+    </section>
+
+    <div class="gallery" id="gallery"></div>
+
+    <div class="property-layout">
+      <div>
+        <section class="property-block">
+          <div class="key-facts" id="key-facts"></div>
+        </section>
+        <section class="property-block">
+          <h2>Description</h2>
+          <div class="description" id="p-desc"></div>
+          <p id="p-demo" class="notice" hidden>Cette annonce est une <strong>donnée de démonstration</strong> destinée à illustrer le site. Elle ne correspond pas à un bien réel.</p>
+        </section>
+        <section class="property-block" id="features-block">
+          <h2>Prestations</h2>
+          <ul class="feature-list" id="p-features"></ul>
+        </section>
+        <section class="property-block">
+          <h2>Caractéristiques</h2>
+          <table class="spec-table"><tbody id="p-specs"></tbody></table>
+        </section>
+        <section class="property-block">
+          <h2>Localisation</h2>
+          <div class="map-embed" id="p-map"></div>
+          <p class="map-note">Localisation indicative du secteur. L'adresse exacte est communiquée lors de la prise de rendez-vous.</p>
+        </section>
+      </div>
+
+      <aside>
+        <div class="contact-card" id="contact">
+          <div class="contact-card__price" id="c-price"></div>
+          <div class="contact-card__ref" id="c-ref"></div>
+          <div class="contact-card__actions">
+            <a class="btn btn--whatsapp" id="c-wa" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-whatsapp"/></svg>Demander sur WhatsApp</a>
+            <a class="btn btn--ghost" href="tel:+21651294295"><svg aria-hidden="true"><use href="#i-phone"/></svg>+216 51 294 295</a>
+          </div>
+          <div class="contact-card__agent">
+            <svg class="logo__mark" aria-hidden="true"><use href="#i-logo"/></svg>
+            <div><strong>BILI IMMOBILIÈRE</strong><span>Agence immobilière · Hammam Sousse</span></div>
+          </div>
+          <form class="form-grid" id="visit-form" novalidate data-success="Merci ! Votre demande a bien été envoyée. L'agence vous recontacte rapidement.">
+            <div class="form-field"><label for="v-name">Nom <span class="req">*</span></label><input class="input" id="v-name" name="name" required autocomplete="name"></div>
+            <div class="form-field"><label for="v-phone">Téléphone <span class="req">*</span></label><input class="input" id="v-phone" name="phone" type="tel" required autocomplete="tel"></div>
+            <div class="form-field"><label for="v-msg">Message</label><textarea class="textarea" id="v-msg" name="message" rows="3" style="min-height:96px"></textarea></div>
+            <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+            <button class="btn" type="submit">Demander une visite</button>
+            <div class="form-status" role="status" hidden></div>
+          </form>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <section class="section section--sand" id="similar-section" hidden>
+    <div class="container">
+      <div class="section-head">
+        <div><span class="eyebrow">À découvrir aussi</span><h2>Biens similaires</h2></div>
+        <a class="link-arrow" href="/annonces">Toutes les annonces <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </div>
+      <div class="grid-listings" id="similar"></div>
+    </div>
+  </section>
+</main>
+
+<div class="mobile-bar">
+  <a class="btn btn--ghost" href="tel:+21651294295"><svg aria-hidden="true"><use href="#i-phone"/></svg>Appeler</a>
+  <a class="btn btn--whatsapp" id="m-wa" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-whatsapp"/></svg>WhatsApp</a>
+</div>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Galerie photos">
+  <div class="lightbox__top"><span id="lb-count"></span><button type="button" id="lb-close" aria-label="Fermer"><svg><use href="#i-close"/></svg></button></div>
+  <div class="lightbox__stage">
+    <button type="button" class="lightbox__prev" id="lb-prev" aria-label="Photo précédente"><svg><use href="#i-chev-l"/></svg></button>
+    <img id="lb-img" alt="">
+    <button type="button" class="lightbox__next" id="lb-next" aria-label="Photo suivante"><svg><use href="#i-chev-r"/></svg></button>
+  </div>
+</div>
+
+<!--#footer-->
+<script id="listing-data" type="application/json">{{INITIAL}}</script>
+<script src="/js/app.js" defer></script>
+<script src="/js/property.js" defer></script>
+</body>
+</html>

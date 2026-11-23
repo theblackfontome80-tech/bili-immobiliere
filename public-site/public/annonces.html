@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{TITLE}} | BILI IMMOBILIÈRE</title>
+  <meta name="description" content="{{DESC}}">
+  <link rel="canonical" href="{{CANONICAL}}">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="BILI IMMOBILIÈRE">
+  <meta property="og:title" content="{{TITLE}}">
+  <meta property="og:description" content="{{DESC}}">
+  <meta property="og:image" content="{{SITE_URL}}/img/og-cover.jpg">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="icon" href="/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@300..600&family=Inter+Tight:wght@300..600&display=swap">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body data-preset="{{PRESET}}">
+<!--#header-->
+
+<main id="main">
+  <section class="page-head">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Fil d'Ariane"><a href="/">Accueil</a><span aria-hidden="true">/</span><span id="crumb">Annonces</span></nav>
+      <h1 id="page-title">Nos biens à vendre et à louer</h1>
+      <p class="lead" id="page-lead">Appartements, villas, maisons, studios et terrains à Hammam Sousse, Sousse, Sahloul, Khezama et environs.</p>
+    </div>
+  </section>
+
+  <div class="container catalog">
+    <aside class="filters" id="filters" aria-label="Filtres">
+      <div class="filters__head">
+        <h2>Filtres</h2>
+        <button class="icon-btn" type="button" data-close-filters aria-label="Fermer les filtres"><svg><use href="#i-close"/></svg></button>
+      </div>
+      <form id="filter-form" novalidate>
+        <div class="filter-group">
+          <span class="label">Transaction</span>
+          <div class="seg">
+            <input type="radio" name="transaction" id="tx-all" value="" checked><label for="tx-all">Tous</label>
+            <input type="radio" name="transaction" id="tx-vente" value="vente"><label for="tx-vente">Vente</label>
+            <input type="radio" name="transaction" id="tx-location" value="location"><label for="tx-location">Location</label>
+          </div>
+        </div>
+        <fieldset class="filter-group" style="border:0;margin:0;padding-inline:0">
+          <legend class="label" style="margin-bottom:12px;padding:0">Type de bien</legend>
+          <div class="checks" id="type-checks">
+            <label class="check"><span><input type="checkbox" name="type" value="appartement">Appartement</span><em data-tc="appartement"></em></label>
+            <label class="check"><span><input type="checkbox" name="type" value="villa">Villa</span><em data-tc="villa"></em></label>
+            <label class="check"><span><input type="checkbox" name="type" value="maison">Maison</span><em data-tc="maison"></em></label>
+            <label class="check"><span><input type="checkbox" name="type" value="terrain">Terrain</span><em data-tc="terrain"></em></label>
+            <label class="check"><span><input type="checkbox" name="type" value="studio">Studio</span><em data-tc="studio"></em></label>
+          </div>
+        </fieldset>
+        <div class="filter-group">
+          <label class="label" for="f-loc">Localisation</label>
+          <select class="select" id="f-loc" name="loc">
+            <option value="">Toutes les zones</option>
+            <option>Hammam Sousse</option>
+            <option>Sousse</option>
+            <option>Sahloul</option>
+            <option>Khezama</option>
+            <option>El Kantaoui</option>
+            <option>Chott Meriem</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <span class="label">Budget (TND)</span>
+          <div class="range-pair">
+            <input class="input" type="number" name="min" min="0" step="1000" inputmode="numeric" placeholder="Min." aria-label="Budget minimum">
+            <input class="input" type="number" name="max" min="0" step="1000" inputmode="numeric" placeholder="Max." aria-label="Budget maximum">
+          </div>
+        </div>
+        <div class="filter-group">
+          <span class="label">Superficie (m²)</span>
+          <div class="range-pair">
+            <input class="input" type="number" name="smin" min="0" step="10" inputmode="numeric" placeholder="Min." aria-label="Superficie minimum">
+            <input class="input" type="number" name="smax" min="0" step="10" inputmode="numeric" placeholder="Max." aria-label="Superficie maximum">
+          </div>
+        </div>
+        <fieldset class="filter-group" style="border:0;margin:0;padding-inline:0">
+          <legend class="label" style="margin-bottom:12px;padding:0">Chambres</legend>
+          <div class="pills">
+            <span class="pill"><input type="radio" name="ch" id="ch-0" value="" checked><label for="ch-0">Tous</label></span>
+            <span class="pill"><input type="radio" name="ch" id="ch-1" value="1"><label for="ch-1">1+</label></span>
+            <span class="pill"><input type="radio" name="ch" id="ch-2" value="2"><label for="ch-2">2+</label></span>
+            <span class="pill"><input type="radio" name="ch" id="ch-3" value="3"><label for="ch-3">3+</label></span>
+            <span class="pill"><input type="radio" name="ch" id="ch-4" value="4"><label for="ch-4">4+</label></span>
+          </div>
+        </fieldset>
+        <div class="filters__actions">
+          <button class="btn btn--ghost" type="reset">Réinitialiser</button>
+          <button class="btn" type="button" data-close-filters id="show-results">Voir les biens</button>
+        </div>
+      </form>
+    </aside>
+
+    <section aria-label="Résultats">
+      <div class="results-bar">
+        <div class="results-bar__count" id="count" aria-live="polite">&nbsp;</div>
+        <div class="results-bar__right">
+          <button class="btn btn--ghost btn--sm btn-filters" type="button" id="open-filters"><svg aria-hidden="true"><use href="#i-filter"/></svg>Filtres</button>
+          <label class="visually-hidden" for="sort">Trier</label>
+          <select class="select" id="sort">
+            <option value="recent">Plus récents</option>
+            <option value="price-asc">Prix croissant</option>
+            <option value="price-desc">Prix décroissant</option>
+            <option value="surface-desc">Plus grande surface</option>
+          </select>
+        </div>
+      </div>
+      <div class="active-filters" id="chips"></div>
+      <div class="grid-listings" id="results">
+        <div class="card card--skeleton"><div class="card__media"></div><div class="card__body"><div class="skel" style="height:90px"></div></div></div>
+        <div class="card card--skeleton"><div class="card__media"></div><div class="card__body"><div class="skel" style="height:90px"></div></div></div>
+        <div class="card card--skeleton"><div class="card__media"></div><div class="card__body"><div class="skel" style="height:90px"></div></div></div>
+      </div>
+    </section>
+  </div>
+</main>
+
+<!--#footer-->
+<script src="/js/app.js" defer></script>
+<script src="/js/listings.js" defer></script>
+</body>
+</html>

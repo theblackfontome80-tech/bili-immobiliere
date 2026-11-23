@@ -1,0 +1,9 @@
+{
+  "name": "bili-immobiliere",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Site officiel de BILI IMMOBILIÈRE — agence immobilière à Hammam Sousse",
+  "main": "server.js",
+  "scripts": { "start": "node server.js" },
+  "engines": { "node": ">=18" }
+}
